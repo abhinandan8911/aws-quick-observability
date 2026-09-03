@@ -1,0 +1,30 @@
+{
+  "name": "quick-observability",
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT-0",
+  "description": "Self-contained enterprise observability module for an Amazon Quick account: vended usage logs and API audit events into a governed S3 lake, catalogued in Glue, queried in Athena, surfaced in Quick.",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "preflight": "ts-node --prefer-ts-exts scripts/preflight.ts",
+    "synth": "cdk synth",
+    "bootstrap": "cdk bootstrap",
+    "deploy": "npm run preflight && cdk deploy --all --require-approval never",
+    "deploy:skip-preflight": "cdk deploy --all --require-approval never",
+    "verify": "ts-node --prefer-ts-exts scripts/verify.ts",
+    "query": "ts-node --prefer-ts-exts scripts/query.ts",
+    "destroy": "cdk destroy --all",
+    "backfill": "ts-node --prefer-ts-exts scripts/backfill.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "aws-cdk": "^2.1112.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.2"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.267.0",
+    "constructs": "^10.4.2"
+  }
+}

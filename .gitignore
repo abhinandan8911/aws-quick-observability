@@ -1,0 +1,16 @@
+node_modules/
+cdk.out/
+*.js
+*.d.ts
+!jest.config.js
+.DS_Store
+*.log
+build.log
+
+# Per-environment configuration carries real account ids, bucket names and user names.
+# Only the placeholder template is tracked.
+env/*.env
+!env/example.env
+
+# Built Lambda layer artefact.
+assets/
