@@ -135,10 +135,9 @@ export const ACCOUNT_ID = env('QUICK_OBS_ACCOUNT_ID', '') ||
  * default — which is exactly what happened here: preflight validated us-east-1 while
  * deploy targeted the profile's us-west-2 and failed on a missing bootstrap.
  *
- * `AWS_REGION` is excluded for the same reason. On the workstation this was built on it
- * was exported globally as one Region while the active profile's own Region was another,
- * so honouring it silently retargeted the deploy away from the Region the Quick account
- * actually lives in.
+ * `AWS_REGION` is excluded for the same reason. A globally exported `AWS_REGION` that
+ * differs from the active profile's Region silently retargets the deploy away from the
+ * Region the Quick account actually lives in.
  *
  * So: one explicit knob, `QUICK_OBS_REGION`, and a fixed default. No ambient
  * environment can move the target, and preflight and deploy always agree. Quick is

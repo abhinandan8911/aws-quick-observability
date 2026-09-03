@@ -368,7 +368,7 @@ export function serdeMapping(t: LogType, includeSensitive: boolean): Record<stri
   return out;
 }
 
-/** Sanity checks at load time rather than at deploy time. */
+/** Validation checks at load time rather than at deploy time. */
 for (const [key, schema] of Object.entries(SCHEMAS)) {
   if (schema.logType !== key) throw new Error(`SCHEMAS key ${key} does not match logType ${schema.logType}`);
   const names = schema.fields.map((f) => f.name);

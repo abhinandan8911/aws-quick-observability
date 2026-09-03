@@ -299,8 +299,8 @@ if (empty) {
       `  vended logs are NOT retroactive, so only activity after deployment is captured,\n` +
       `  and a Quick feature nobody has used emits nothing at all.\n\n` +
       `  Generate some activity, wait ~5 minutes for the S3 buffer to flush, then re-run.\n` +
-      `  A quick way to produce chat and feedback logs is the sibling agent-test module:\n` +
-      `    cd ../ && npm run agent-test -- --limit 20\n\n` +
+      `  Chat and feedback logs appear only after real chat activity. Ask the agent a\n` +
+      `  few questions in the Quick console, then re-run this check.\n\n` +
       `  If a table stays at 0 rows while its S3 prefix has objects, the SerDe column\n` +
       `  mapping is wrong rather than the data being absent — see lib/log-schemas.ts.\n`,
   );

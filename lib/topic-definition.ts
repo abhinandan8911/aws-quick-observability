@@ -108,7 +108,7 @@ export const AGENT_STARTER_PROMPTS = [
   'Which knowledge base documents failed to sync, and what is the suggested fix?',
 ];
 
-// Fail at synth time rather than midway through a deploy.
+// Fail at synth time rather than part-way through a deploy.
 for (const p of AGENT_STARTER_PROMPTS) {
   if (p.length > 100) throw new Error(`Starter prompt exceeds 100 chars (${p.length}): ${p}`);
 }

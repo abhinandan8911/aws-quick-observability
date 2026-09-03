@@ -38,9 +38,9 @@ Two consequences worth knowing:
 
 - A vended table at 0 rows is normal on day one, and stays at 0 for any Quick feature
   nobody uses. `DLP_LOGS` never emits without a DLP provider configured.
-- If you want a populated dashboard for a demo, generate traffic first. The sibling
-  `agent-test/` module asks 200 questions to a Quick chat agent, which is the fastest way
-  to produce `CHAT_LOGS` and `FEEDBACK_LOGS`.
+- If you want a populated dashboard for a demo, generate traffic first. `CHAT_LOGS` and
+  `FEEDBACK_LOGS` appear only after real chat activity, so ask a Quick chat agent a batch
+  of questions and rate some of the answers before deploying the Quick layer.
 
 ---
 
@@ -53,9 +53,9 @@ environment variable. No code edits.
 |---|---|---|
 | `QUICK_OBS_ACCOUNT_ID` | from CDK credentials | Target AWS account |
 | `QUICK_OBS_REGION` | `us-east-1` | **Must match the Region the Quick account lives in.** Delivery is per Region |
-| `AWS_PROFILE` | `my-profile` | CLI profile |
+| `AWS_PROFILE` | *(unset)* | CLI profile. Leave empty to use the SDK's own credential resolution |
 | `QUICK_OBS_PREFIX` | `quick-obs` | Prefixes every resource name, including the S3 bucket |
-| `QUICK_OBS_OWNER` | your Quick admin user | Quick username that owns the dashboard, topic, Space and agent |
+| `QUICK_OBS_OWNER` | *(required)* | Quick username that owns the dashboard, topic, Space and agent |
 | `QUICK_OBS_NAMESPACE` | `default` | Quick namespace |
 | `QUICK_OBS_LOG_TYPES` | `all` | Comma list to narrow which of the 7 log types to deliver |
 | `QUICK_OBS_LOG_SENSITIVE` | `false` | `true` also delivers chat message bodies. See below |
