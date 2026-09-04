@@ -5,8 +5,9 @@ module**. Quick's vended usage logs and its CloudTrail API activity land in a go
 S3 lake, are catalogued in Glue, queried through Athena, and surfaced as two Quick
 dashboards plus a chat agent you can ask questions in plain English.
 
-Copy this directory into any repo and it works on its own. It shares no code with its
-parent.
+Self-contained: it has its own `package.json`, `tsconfig.json` and `cdk.json`, and imports
+nothing from outside its own tree. Fork it, or copy the tree into a subdirectory of your own
+repo, and it works as-is.
 
 ```bash
 npm install

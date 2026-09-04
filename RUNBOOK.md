@@ -49,7 +49,6 @@ resources — no Lambda in the data path, no Firehose, no NAT.
 ## 1. Configure
 
 ```bash
-cd quick-observability
 npm install
 cp env/example.env env/prod.env
 $EDITOR env/prod.env
@@ -247,14 +246,19 @@ aws s3 ls | grep "$PREFIX"
 
 ## 9. Sharing this module with another team
 
+This repository *is* the module: its root is what you copy. Either fork it, or drop the
+tree into a subdirectory of your own repo — it has its own `package.json`, `tsconfig.json`
+and `cdk.json`, and imports nothing from outside itself.
+
 ```bash
-cp -R quick-observability /path/to/their/repo/
-rm /path/to/their/repo/quick-observability/env/*.env   # keep example.env
+git clone https://github.com/abhinandan8911/aws-quick-observability.git
+rm -f aws-quick-observability/env/*.env   # keep example.env, drop any real config
 ```
 
-`env/example.env` is the only environment file that should ship. The module source
-contains no account id, bucket, username or profile name — verified by:
+`env/example.env` is the only environment file that should ever ship. The module source
+contains no account id, bucket name, username or profile name. Verify with your own
+values rather than the placeholders below, since a grep for a placeholder always passes:
 
 ```bash
-grep -rn "<your-account-id>" lib bin scripts lambda    # expect no matches
+grep -rn "123456789012\|your-bucket\|your-user" lib bin scripts lambda   # expect no matches
 ```
