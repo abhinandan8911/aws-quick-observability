@@ -20,7 +20,7 @@
  *    cannot express.
  */
 
-import { AUDIT_SOURCE, AUDIT_TABLE, LOG_TYPES, NAMES, tableName, type LogType } from './config';
+import { AUDIT_SOURCE, AUDIT_TABLE, LOG_TYPES, NAMES, PREFIX, tableName, type LogType } from './config';
 
 export type ColType = 'STRING' | 'INTEGER' | 'DECIMAL' | 'DATETIME';
 
@@ -52,8 +52,6 @@ export interface DatasetSpec {
   idSuffix: string;
   displayName: string;
   description: string;
-  /** Local alias used inside the dashboard definition. */
-  alias: string;
   sql: string;
   columns: DatasetColumn[];
   defaultDateColumn?: string;
@@ -114,7 +112,6 @@ const CHAT_ACTIVITY: DatasetSpec = {
   displayName: 'Quick Chat Activity',
   description:
     'One row per chat turn, with any feedback the user later gave on that answer. The core adoption and answer-quality dataset.',
-  alias: 'chat',
   defaultDateColumn: 'Event Time',
   // LEFT JOIN so unrated answers are kept — the ratio of rated to unrated is itself a
   // metric, and an inner join would silently drop most traffic.
@@ -181,7 +178,6 @@ const AGENT_HOURS: DatasetSpec = {
   displayName: 'Quick Agent Hours',
   description:
     'Metered agent-hour consumption per user and Quick surface, split by subscription entitlement versus billable overage. This is the cost dataset.',
-  alias: 'hours',
   defaultDateColumn: 'Event Time',
   sql: `
 SELECT
@@ -220,7 +216,6 @@ const INDEX_USAGE: DatasetSpec = {
   displayName: 'Quick Index Storage',
   description:
     'Index storage consumed per knowledge base and Space. Events are emitted on change, so the latest row per source is the current state.',
-  alias: 'index',
   defaultDateColumn: 'Event Time',
   // Events publish on change, not daily, so a naive SUM over all history would
   // multiply-count a source that changed often. The window function keeps only the
@@ -273,7 +268,6 @@ const KB_SYNC: DatasetSpec = {
   displayName: 'Quick Knowledge Base Sync',
   description:
     'Per-document knowledge base sync outcomes, including the error type and suggested mitigation for failed or skipped documents.',
-  alias: 'kbsync',
   defaultDateColumn: 'Event Time',
   sql: `
 SELECT
@@ -337,7 +331,7 @@ const OPERATION_KIND = (col: string) => `
  * SQL for the API audit dataset, matching whichever audit source is configured.
  *
  * The two sources produce different files, so they need different SQL, but both project
- * the **same column contract** — so `dashboard-definition.ts` and `topic-definition.ts`
+ * the **same column contract** — so the captured dashboards and `topic-definition.ts`
  * never need to know which is in use.
  *
  *   CloudTrail direct (`existing-trail` / `own-trail`)
@@ -427,7 +421,6 @@ const API_AUDIT: DatasetSpec = {
   displayName: 'Quick API Audit',
   description:
     'Amazon Quick API calls captured from CloudTrail: who did what, from where, and whether it failed. The administrative change log.',
-  alias: 'audit',
   defaultDateColumn: 'Event Time',
   // Two shapes, one contract. See auditSql() below.
   sql: auditSql(),
@@ -483,22 +476,9 @@ if (!DATASETS.length) {
   );
 }
 
-/** Dataset aliases available to the dashboard. */
-export const AVAILABLE_ALIASES: Set<string> = new Set(DATASETS.map((d) => d.alias));
-
-/**
- * Keyed by dataset key, over ALL datasets rather than only the available ones.
- *
- * `dashboard-definition.ts` resolves aliases while constructing the sheets, which happens
- * before pruning removes unsupported visuals. If this were built from `DATASETS`, a
- * narrowed configuration would throw "No dataset with alias" during construction instead
- * of pruning cleanly.
- */
-export const BY_KEY: Record<string, DatasetSpec> = Object.fromEntries(ALL_DATASETS.map((d) => [d.key, d]));
-
-/** Full dataset id for a spec. */
+/** Full dataset id for a spec, e.g. `quick-obs-chat-activity`. */
 export function datasetId(spec: DatasetSpec): string {
-  return `${NAMES.dashboard.replace(/-dashboard$/, '')}-${spec.idSuffix}`;
+  return `${PREFIX}-${spec.idSuffix}`;
 }
 
 /** Look up a column, throwing at synth time on a typo rather than failing the deploy. */

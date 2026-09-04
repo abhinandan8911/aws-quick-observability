@@ -1,0 +1,3326 @@
+{
+  "Name": "Quick Observability Dashboard",
+  "ThemeArn": "arn:aws:quicksight::aws:theme/NITRO",
+  "DashboardPublishOptions": {
+    "AdHocFilteringOption": {
+      "AvailabilityStatus": "DISABLED"
+    },
+    "ExportToCSVOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "SheetControlsOption": {
+      "VisibilityState": "COLLAPSED"
+    },
+    "SheetLayoutElementMaximizationOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "VisualMenuOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "VisualAxisSortOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "ExportWithHiddenFieldsOption": {
+      "AvailabilityStatus": "DISABLED"
+    },
+    "DataPointDrillUpDownOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataPointMenuLabelOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataPointTooltipOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataQAEnabledOption": {
+      "AvailabilityStatus": "DISABLED"
+    },
+    "QuickSuiteActionsOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "ExecutiveSummaryOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataStoriesSharingOption": {
+      "AvailabilityStatus": "ENABLED"
+    }
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "quick-obs-agent-hours",
+        "DataSetArn": "RESOLVED_AT_SYNTH"
+      },
+      {
+        "Identifier": "quick-obs-kb-sync",
+        "DataSetArn": "RESOLVED_AT_SYNTH"
+      },
+      {
+        "Identifier": "quick-obs-index-usage",
+        "DataSetArn": "RESOLVED_AT_SYNTH"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_sheet-17194168",
+        "Title": "🌐 Executive Overview",
+        "Description": "Cross-pillar KPIs spanning Agent Hours, Index Storage, and KB Sync — combined trend chart and health donuts for C-suite visibility.",
+        "Name": "Executive Overview",
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-17194168_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+              "SourceFilterId": "list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-17194168_list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+              "SourceFilterId": "list_filter_id_b4802668-927f-4111-a081-7180883339f3"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-17194168_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+              "SourceFilterId": "list_filter_id_263eb128-60af-4c2b-8b84-176584026b62"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-17194168_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+              "SourceFilterId": "list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-17194168_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+              "SourceFilterId": "list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-17194168_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+              "SourceFilterId": "list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_474fddd0",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours Consumed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative agent hours with period-over-period comparison</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_474fddd0_Agent Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Agent Hours"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": [
+                    {
+                      "DateDimensionField": {
+                        "FieldId": "visual_474fddd0_trend_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Event Time"
+                        },
+                        "DateGranularity": "MONTH",
+                        "HierarchyId": "a37ce8fc-c415-4fbc-8390-4a96b87fb56a"
+                      }
+                    }
+                  ]
+                },
+                "SortConfiguration": {
+                  "TrendGroupSort": [
+                    {
+                      "FieldSort": {
+                        "FieldId": "visual_474fddd0_Agent Hours_measure_0",
+                        "Direction": "DESC"
+                      }
+                    }
+                  ]
+                },
+                "KPIOptions": {
+                  "Comparison": {
+                    "ComparisonMethod": "PERCENT_DIFFERENCE"
+                  },
+                  "PrimaryValueDisplayType": "COMPARISON",
+                  "Sparkline": {
+                    "Visibility": "VISIBLE",
+                    "Type": "AREA",
+                    "TooltipVisibility": "HIDDEN"
+                  },
+                  "VisualLayoutOptions": {
+                    "StandardLayout": {
+                      "Type": "CLASSIC"
+                    }
+                  }
+                }
+              },
+              "ConditionalFormatting": {
+                "ConditionalFormattingOptions": [
+                  {
+                    "ComparisonValue": {
+                      "TextColor": {
+                        "Solid": {
+                          "Expression": "percentDifference(SUM({Agent Hours}),[SUM({Agent Hours}) DESC],1,[]) > 0.0",
+                          "Color": "#2CAD00"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ComparisonValue": {
+                      "TextColor": {
+                        "Solid": {
+                          "Expression": "percentDifference(SUM({Agent Hours}),[SUM({Agent Hours}) DESC],1,[]) < 0.0",
+                          "Color": "#DE3B00"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ComparisonValue": {
+                      "Icon": {
+                        "CustomCondition": {
+                          "Expression": "percentDifference(SUM({Agent Hours}),[SUM({Agent Hours}) DESC],1,[]) > 0.0",
+                          "IconOptions": {
+                            "Icon": "CARET_UP"
+                          },
+                          "Color": "#2CAD00"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "ComparisonValue": {
+                      "Icon": {
+                        "CustomCondition": {
+                          "Expression": "percentDifference(SUM({Agent Hours}),[SUM({Agent Hours}) DESC],1,[]) < 0.0",
+                          "IconOptions": {
+                            "Icon": "CARET_DOWN"
+                          },
+                          "Color": "#DE3B00"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "a37ce8fc-c415-4fbc-8390-4a96b87fb56a",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "KPI tile displaying total agent hours consumed with trend comparison to previous time period"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_7bf867f7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Billable Overage Hours</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative agent hours exceeding included entitlements</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_7bf867f7_Billable Overage Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Billable Overage Hours"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI tile displaying total billable overage hours, signaling financial impact from usage beyond included entitlements"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_ba46a160",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Contracted Included Hours</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of agent hours included in contract capacity</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_ba46a160_Included Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Included Hours"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI tile displaying total included hours representing overall contract capacity available for agent usage"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_3d8ec259",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours Utilization</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Percentage of included hours consumed by agents</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_3d8ec259_Utilization %_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Utilization %"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total utilization percentage of agent hours against included capacity allocation"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_634ea6be",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Index Storage Consumed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative megabytes indexed across all sources</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_634ea6be_MB Consumed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "MB Consumed"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total megabytes consumed across all indexed data sources, showing overall storage footprint"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_3bb65945",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Documents Indexed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative count of indexed documents across sources</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_3bb65945_Documents Indexed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Documents Indexed"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI tile displaying total sum of documents indexed, showing overall content ingestion volume across all data sources"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_a28103a9",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Knowledge Base Sync Runs</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative count of sync executions across data sources</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_a28103a9_Sync Run_distinct_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-kb-sync",
+                          "ColumnName": "Sync Run"
+                        },
+                        "AggregationFunction": "DISTINCT_COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total number of knowledge base sync runs executed across all data sources and documents"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_c05a986b",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Average Knowledge Base Sync Success Rate</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Percentage of successful document syncs across knowledge bases</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_c05a986b_Sync Success Flag_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-kb-sync",
+                          "ColumnName": "Sync Success Flag"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "AVERAGE"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying average sync success rate across knowledge base document synchronization runs"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_fee27fc4",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Failed Document Indexing</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of documents not indexed during knowledge base syncs</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_fee27fc4_Documents Not Indexed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-kb-sync",
+                          "ColumnName": "Documents Not Indexed"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Key performance indicator displaying total count of documents that failed indexing across knowledge base sync operations"
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_a4f2b62f",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours Over Time</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Daily consumption trend of agent hours usage</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_a4f2b62f_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Event Time"
+                          },
+                          "DateGranularity": "DAY",
+                          "HierarchyId": "77ada4bc-a95e-4372-83f6-66ce5ce1d3c1"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_a4f2b62f_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Event Time",
+                      "ApplyTo": {
+                        "FieldId": "visual_a4f2b62f_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Event Time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Agent Hours",
+                      "ApplyTo": {
+                        "FieldId": "visual_a4f2b62f_Agent Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Agent Hours"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "77ada4bc-a95e-4372-83f6-66ce5ce1d3c1",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "Line chart tracking total agent hours consumed over event time, revealing usage trends and consumption patterns"
+            }
+          },
+          {
+            "PieChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_94526dc7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours by Quick Surface</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Proportional breakdown of agent hours across surfaces</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_94526dc7_Quick Surface_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Quick Surface"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_94526dc7_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DonutOptions": {
+                  "ArcOptions": {
+                    "ArcThickness": "MEDIUM"
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Pie chart showing distribution of total agent hours across Quick Surface categories, highlighting which surfaces consume the most agent time"
+            }
+          },
+          {
+            "PieChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_2ad3df2c",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Knowledge Base Sync Result Breakdown</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Proportion of sync outcomes across all documents</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_2ad3df2c_Sync Result_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-kb-sync",
+                            "ColumnName": "Sync Result"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_2ad3df2c_Sync Result_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-kb-sync",
+                            "ColumnName": "Sync Result"
+                          },
+                          "AggregationFunction": "COUNT"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DonutOptions": {
+                  "ArcOptions": {
+                    "ArcThickness": "MEDIUM"
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Pie chart showing distribution of sync results across knowledge base documents, highlighting success and failure proportions"
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "FreeFormLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_2ad3df2c",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1346px",
+                    "Width": "1594px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_a4f2b62f",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "846px",
+                    "Width": "994px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_94526dc7",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1006px",
+                    "YAxisLocation": "846px",
+                    "Width": "594px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_fee27fc4",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "566px",
+                    "Width": "1594px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_474fddd0",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_7bf867f7",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "406px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_ba46a160",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_3d8ec259",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1206px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_634ea6be",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "286px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_3bb65945",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "406px",
+                    "YAxisLocation": "286px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_a28103a9",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "286px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_c05a986b",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1206px",
+                    "YAxisLocation": "286px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "control_id_sheet-17194168_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-17194168_list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-17194168_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-17194168_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-17194168_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-17194168_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_sheet-235a4a67",
+        "Title": "⏱️ Agent Hours & Billing",
+        "Description": "Deep dive on Agent Hours consumption, overage revenue opportunities, top users, subscription tiers, entitlements, and user-surface heatmap.",
+        "Name": "Agent Hours & Billing",
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-235a4a67_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+              "SourceFilterId": "list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-235a4a67_list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+              "SourceFilterId": "list_filter_id_b4802668-927f-4111-a081-7180883339f3"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-235a4a67_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+              "SourceFilterId": "list_filter_id_263eb128-60af-4c2b-8b84-176584026b62"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-235a4a67_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+              "SourceFilterId": "list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-235a4a67_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+              "SourceFilterId": "list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-235a4a67_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+              "SourceFilterId": "list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_cb581768",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Billable Overage Percentage</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Share of agent hours exceeding included allowance</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_cb581768_Overage %_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Overage %"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total overage percentage, indicating how much agent usage surpasses included billing hours"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_2104bc6d",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Distinct Users</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Distinct count of active agent users</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_2104bc6d_User_distinct_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "User"
+                        },
+                        "AggregationFunction": "DISTINCT_COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total distinct user count leveraging agent hours across the platform"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_42f1fecc",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Active Subscriptions</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Distinct count of subscriptions using agent hours</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_42f1fecc_Subscription_distinct_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Subscription"
+                        },
+                        "AggregationFunction": "DISTINCT_COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total distinct subscription count, indicating overall subscription reach for agent hours and billing"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_212cd58c",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours Consumed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative agent usage across all subscriptions</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_212cd58c_Agent Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Agent Hours"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total sum of agent hours consumed across all users and entitlements"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_9a80c16e",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Billable Overage Hours</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of agent hours exceeding included entitlements</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_9a80c16e_Billable Overage Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Billable Overage Hours"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total billable overage hours accumulated beyond included entitlement thresholds across all agents"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_82f646cf",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Average Agent Hours per User</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Mean billable agent time across active users</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_82f646cf_Agent Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Agent Hours"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "AVERAGE"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying average agent hours per user, indicating typical consumption levels across the user base"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_afc7dcba",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours by User</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>User ranking by cumulative agent hour consumption</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_afc7dcba_User_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "User"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_afc7dcba_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "CLUSTERED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "User",
+                      "ApplyTo": {
+                        "FieldId": "visual_afc7dcba_User_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "User"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "ValueLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Agent Hours",
+                      "ApplyTo": {
+                        "FieldId": "visual_afc7dcba_Agent Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Agent Hours"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal bar chart ranking users by total agent hours, revealing which users consume the most agent time"
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_585e9605",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours Over Time</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Daily agent hours consumption trend across event dates</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_585e9605_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Event Time"
+                          },
+                          "DateGranularity": "DAY",
+                          "HierarchyId": "25805534-eacc-471e-9f71-9900c85738dc"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_585e9605_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Event Time",
+                      "ApplyTo": {
+                        "FieldId": "visual_585e9605_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Event Time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Agent Hours",
+                      "ApplyTo": {
+                        "FieldId": "visual_585e9605_Agent Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Agent Hours"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "25805534-eacc-471e-9f71-9900c85738dc",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "Line chart tracking total agent hours by day, revealing usage trends and consumption patterns over time"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_054710e7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours by Subscription</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Included versus billable overage hours stacked per subscription</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_054710e7_Subscription_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Subscription"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_054710e7_Included Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Included Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_054710e7_Billable Overage Hours_measure_1",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Billable Overage Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "VERTICAL",
+                "BarsArrangement": "STACKED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Subscription",
+                      "ApplyTo": {
+                        "FieldId": "visual_054710e7_Subscription_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Subscription"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "ValueLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Hours",
+                      "ApplyTo": {
+                        "FieldId": "visual_054710e7_Included Hours_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Included Hours"
+                        }
+                      }
+                    },
+                    {
+                      "CustomLabel": "Hours",
+                      "ApplyTo": {
+                        "FieldId": "visual_054710e7_Billable Overage Hours_measure_1",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-agent-hours",
+                          "ColumnName": "Billable Overage Hours"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Stacked bar chart comparing total included and billable overage hours across subscriptions, revealing usage and overage patterns"
+            }
+          },
+          {
+            "PieChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_ea878206",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours by Entitlement</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Proportional breakdown of agent hours across entitlement tiers</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_ea878206_Entitlement_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Entitlement"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_ea878206_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DonutOptions": {
+                  "ArcOptions": {
+                    "ArcThickness": "MEDIUM"
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Pie chart showing the distribution of total agent hours across entitlement categories, highlighting which entitlements drive usage"
+            }
+          },
+          {
+            "TreeMapVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_cc4a9e55",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours by Resource</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Hierarchical breakdown of resource consumption levels</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TreeMapAggregatedFieldWells": {
+                    "Groups": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_cc4a9e55_Resource_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Resource"
+                          }
+                        }
+                      }
+                    ],
+                    "Sizes": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_cc4a9e55_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Treemap visualizing total agent hours grouped by resource, with size and color intensity indicating usage volume across resources"
+            }
+          },
+          {
+            "HeatMapVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_2f9be9de",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Agent Hours by User and Surface</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>User activity distribution across Quick surfaces</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "HeatMapAggregatedFieldWells": {
+                    "Rows": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_2f9be9de_Quick Surface_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Quick Surface"
+                          }
+                        }
+                      }
+                    ],
+                    "Columns": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_2f9be9de_User_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "User"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_2f9be9de_Agent Hours_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-agent-hours",
+                            "ColumnName": "Agent Hours"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "ColumnHierarchies": [],
+              "Actions": [],
+              "VisualContentAltText": "Heat map showing total agent hours by user and Quick surface, revealing usage intensity patterns across the workforce"
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "FreeFormLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_2f9be9de",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1966px",
+                    "Width": "1594px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_585e9605",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "566px",
+                    "Width": "1594px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_cc4a9e55",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "606px",
+                    "YAxisLocation": "1486px",
+                    "Width": "994px",
+                    "Height": "474px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_054710e7",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1026px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_afc7dcba",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "1026px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_ea878206",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1486px",
+                    "Width": "594px",
+                    "Height": "474px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_212cd58c",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "6px",
+                    "Width": "528px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_9a80c16e",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "540px",
+                    "YAxisLocation": "6px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_cb581768",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1073px",
+                    "YAxisLocation": "6px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_2104bc6d",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "286px",
+                    "Width": "528px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_42f1fecc",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "540px",
+                    "YAxisLocation": "286px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_82f646cf",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1073px",
+                    "YAxisLocation": "286px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "control_id_sheet-235a4a67_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-235a4a67_list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-235a4a67_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-235a4a67_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-235a4a67_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-235a4a67_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_sheet-18a3795c",
+        "Title": "💾 Index Storage Usage",
+        "Description": "Storage consumption analysis — MB Consumed trends, top sources, source-type distribution, storage vs docs scatter, treemap, and source detail table.",
+        "Name": "Index Storage Usage",
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-18a3795c_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+              "SourceFilterId": "list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-18a3795c_list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+              "SourceFilterId": "list_filter_id_b4802668-927f-4111-a081-7180883339f3"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-18a3795c_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+              "SourceFilterId": "list_filter_id_263eb128-60af-4c2b-8b84-176584026b62"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-18a3795c_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+              "SourceFilterId": "list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-18a3795c_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+              "SourceFilterId": "list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-18a3795c_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+              "SourceFilterId": "list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_7d73f805",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Index Storage Consumed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of MB consumed across all indexed sources</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_7d73f805_MB Consumed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "MB Consumed"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Key performance indicator displaying total megabytes consumed by index storage across all data sources"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_ff051df0",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Documents Indexed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Aggregate count of all indexed documents in storage</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_ff051df0_Documents Indexed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Documents Indexed"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total number of documents indexed across all sources in the knowledge base"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_9f9c8587",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Active Indexed Sources</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Distinct count of sources contributing to index storage</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_9f9c8587_Source_distinct_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Source"
+                        },
+                        "AggregationFunction": "DISTINCT_COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total number of active data sources currently indexed in storage"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_60e9f1f7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Peak Index Storage Consumption</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Maximum total index bytes observed across sources</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_60e9f1f7_Total Index Bytes_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Total Index Bytes"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "MAX"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying maximum total index bytes, representing peak storage consumption observed across indexed data sources"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_04e3b4f7",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Index Storage Consumed</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of bytes consumed across all indexed sources</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_04e3b4f7_Bytes Consumed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Bytes Consumed"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total bytes consumed for index storage, indicating overall storage footprint across data sources"
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_3259d905",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Storage Consumption by Source Type</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Daily MB consumed trends across indexed source types</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_3259d905_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Event Time"
+                          },
+                          "DateGranularity": "DAY",
+                          "HierarchyId": "12e5d7b1-6a98-483f-a672-f743ab1f3228"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_3259d905_MB Consumed_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "MB Consumed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_3259d905_Source Type_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source Type"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "STACKED_AREA",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Event Time",
+                      "ApplyTo": {
+                        "FieldId": "visual_3259d905_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Event Time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Sum of MB Consumed",
+                      "ApplyTo": {
+                        "FieldId": "visual_3259d905_MB Consumed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "MB Consumed"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "12e5d7b1-6a98-483f-a672-f743ab1f3228",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "Line chart tracking total MB consumed daily across source types, revealing storage growth patterns over time"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_b711ea0a",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Index Storage by Source</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sources ranked by total megabytes consumed</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_b711ea0a_Source_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_b711ea0a_MB Consumed_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "MB Consumed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "CLUSTERED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Source",
+                      "ApplyTo": {
+                        "FieldId": "visual_b711ea0a_Source_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "Source"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "ValueLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "MB Consumed",
+                      "ApplyTo": {
+                        "FieldId": "visual_b711ea0a_MB Consumed_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-index-usage",
+                          "ColumnName": "MB Consumed"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal bar chart ranking sources by total MB consumed, revealing which data sources use most index storage"
+            }
+          },
+          {
+            "PieChartVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_e71fba0a",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Storage Consumption by Source Type</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Breakdown of MB consumed across index source types</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_e71fba0a_Source Type_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source Type"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_e71fba0a_MB Consumed_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "MB Consumed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DonutOptions": {
+                  "ArcOptions": {
+                    "ArcThickness": "MEDIUM"
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Pie chart showing total MB consumed distribution across source types, highlighting which sources dominate index storage usage"
+            }
+          },
+          {
+            "ScatterPlotVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_da66d2bd",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Storage vs Documents Indexed by Source</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Correlating total MB consumed with documents indexed per source type</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "ScatterPlotCategoricallyAggregatedFieldWells": {
+                    "XAxis": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_da66d2bd_MB Consumed_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "MB Consumed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "YAxis": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_da66d2bd_Documents Indexed_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Documents Indexed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_da66d2bd_Source Type_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source Type"
+                          }
+                        }
+                      }
+                    ],
+                    "Size": [],
+                    "Label": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Scatter plot analyzing relationship between total MB consumed and documents indexed across sources, colored by source type"
+            }
+          },
+          {
+            "TreeMapVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_e5271663",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Index Bytes by Source</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Hierarchical breakdown of storage size by source type</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TreeMapAggregatedFieldWells": {
+                    "Groups": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_e5271663_Source_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source"
+                          }
+                        }
+                      }
+                    ],
+                    "Sizes": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_e5271663_Total Index Bytes_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Total Index Bytes"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_e5271663_Source Type_count_measure_0_count_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source Type"
+                          },
+                          "AggregationFunction": "COUNT"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Treemap showing total index bytes across sources, sized by storage volume and colored by source type to reveal storage distribution"
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_5393f5ca",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Index Storage Consumption by Source</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Source type, storage size, and document counts</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_5393f5ca_Source_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_5393f5ca_Source Type_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source Type"
+                          },
+                          "AggregationFunction": "COUNT"
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_5393f5ca_MB Consumed_count_measure1",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "MB Consumed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "COUNT"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_5393f5ca_Documents Indexed_count_measure2",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Documents Indexed"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "COUNT"
+                          }
+                        }
+                      },
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_5393f5ca_Source ARN_count_measure3",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-index-usage",
+                            "ColumnName": "Source ARN"
+                          },
+                          "AggregationFunction": "COUNT"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "VisualContentAltText": "Table listing indexing sources with source type, total MB consumed, documents indexed, and source ARN details"
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "FreeFormLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_e5271663",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1226px",
+                    "Width": "1594px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_5393f5ca",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1726px",
+                    "Width": "1594px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_3259d905",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "286px",
+                    "Width": "994px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_b711ea0a",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "746px",
+                    "Width": "794px",
+                    "Height": "474px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_da66d2bd",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "746px",
+                    "Width": "794px",
+                    "Height": "474px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_e71fba0a",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1006px",
+                    "YAxisLocation": "286px",
+                    "Width": "594px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_7d73f805",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_ff051df0",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "326px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_9f9c8587",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "646px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_60e9f1f7",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "966px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "1d8b0e39-3433-42ca-9127-53c5b9226deb_visual_04e3b4f7",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1286px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "control_id_sheet-18a3795c_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-18a3795c_list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-18a3795c_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-18a3795c_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-18a3795c_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-18a3795c_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [
+      {
+        "DataSetIdentifier": "quick-obs-agent-hours",
+        "Name": "Overage %",
+        "Expression": "/*\nPercentage of Agent Hours that are billable overage, indicating budget utilization and upsell opportunities.\n*/\nifelse(sum({Agent Hours}) = 0, NULL, sum({Billable Overage Hours}) / sum({Agent Hours}) * 100)"
+      },
+      {
+        "DataSetIdentifier": "quick-obs-agent-hours",
+        "Name": "Utilization %",
+        "Expression": "/*\nPercentage of included hours consumed, measuring how efficiently allocated hour budgets are being used.\n*/\nifelse(sum({Included Hours}) = 0, NULL, sum({Agent Hours}) / sum({Included Hours}) * 100)"
+      },
+      {
+        "DataSetIdentifier": "quick-obs-kb-sync",
+        "Name": "Sync Success Flag",
+        "Expression": "/*\nBinary indicator (1 for success, 0 otherwise) for filtering and aggregating successful sync runs.\n*/\nifelse({Sync Result} = 'SUCCESS', 1, 0)"
+      }
+    ],
+    "ParameterDeclarations": [],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1_6b8db19b-a5bc-437a-ac30-1a36fca2706e",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_b3ba60df-420b-46d9-98ad-ccc497dd13f1",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-agent-hours",
+                "ColumnName": "Subscription"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Subscription equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "ALL_DATASETS"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_b4802668-927f-4111-a081-7180883339f3_06f7b21c-6c0b-402a-bbe9-271d67c103d4",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_b4802668-927f-4111-a081-7180883339f3",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-agent-hours",
+                "ColumnName": "Entitlement"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Entitlement equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "ALL_DATASETS"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_263eb128-60af-4c2b-8b84-176584026b62_877a4fb9-102c-4dd7-b008-f4265d8e4565",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_263eb128-60af-4c2b-8b84-176584026b62",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-index-usage",
+                "ColumnName": "Source Type"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Source Type equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "ALL_DATASETS"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524_cc72c4ab-d7f4-401b-a01d-5062b546d0ea",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_5010d27c-23d3-496d-b98a-b29bfbf90524",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-kb-sync",
+                "ColumnName": "Knowledge Base"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Knowledge Base equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "ALL_DATASETS"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6_3e5ec73f-746c-4ff2-baba-641481115d2c",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_64558ecd-81c7-43db-929b-d393a5bbc8d6",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-kb-sync",
+                "ColumnName": "Document Status"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Document Status equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "ALL_DATASETS"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6_874f5768-5af8-4caf-a726-4aa1d919ca8d",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_e10f5c66-2cc6-40ff-b222-d5d8bde9c0a6",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-kb-sync",
+                "ColumnName": "Sync Result"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Sync Result equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "ALL_DATASETS"
+      }
+    ],
+    "AnalysisDefaults": {
+      "DefaultNewSheetConfiguration": {
+        "InteractiveLayoutConfiguration": {
+          "Grid": {
+            "CanvasSizeOptions": {
+              "ScreenCanvasSizeOptions": {
+                "ResizeOption": "FIXED",
+                "OptimizedViewPortWidth": "1600px"
+              }
+            }
+          }
+        },
+        "SheetContentType": "INTERACTIVE"
+      }
+    }
+  }
+}

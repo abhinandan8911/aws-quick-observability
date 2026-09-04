@@ -1,0 +1,3095 @@
+{
+  "Name": "Quick Pulse: Admin Observability",
+  "ThemeArn": "arn:aws:quicksight::aws:theme/NITRO",
+  "DashboardPublishOptions": {
+    "AdHocFilteringOption": {
+      "AvailabilityStatus": "DISABLED"
+    },
+    "ExportToCSVOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "SheetControlsOption": {
+      "VisibilityState": "COLLAPSED"
+    },
+    "SheetLayoutElementMaximizationOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "VisualMenuOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "VisualAxisSortOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "ExportWithHiddenFieldsOption": {
+      "AvailabilityStatus": "DISABLED"
+    },
+    "DataPointDrillUpDownOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataPointMenuLabelOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataPointTooltipOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataQAEnabledOption": {
+      "AvailabilityStatus": "DISABLED"
+    },
+    "QuickSuiteActionsOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "ExecutiveSummaryOption": {
+      "AvailabilityStatus": "ENABLED"
+    },
+    "DataStoriesSharingOption": {
+      "AvailabilityStatus": "ENABLED"
+    }
+  },
+  "Definition": {
+    "DataSetIdentifierDeclarations": [
+      {
+        "Identifier": "quick-obs-api-audit",
+        "DataSetArn": "RESOLVED_AT_SYNTH"
+      },
+      {
+        "Identifier": "quick-obs-chat-activity",
+        "DataSetArn": "RESOLVED_AT_SYNTH"
+      }
+    ],
+    "Sheets": [
+      {
+        "SheetId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_sheet-97141b4b",
+        "Title": "🚀 Quick Pulse- Executive Overview",
+        "Description": "At-a-glance health & adoption signals across chat and API. providing comprehensive data insights and analysis for informed decision making",
+        "Name": "Quick Pulse- Executive Overview",
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-97141b4b_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+              "SourceFilterId": "list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-97141b4b_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+              "SourceFilterId": "list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-97141b4b_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+              "SourceFilterId": "list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-97141b4b_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+              "SourceFilterId": "list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-97141b4b_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+              "SourceFilterId": "list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-97141b4b_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+              "SourceFilterId": "list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_7c38c1f2",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Chat Conversations</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Distinct count of conversations from chat activity</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_7c38c1f2_Conversation ID_distinct_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Conversation ID"
+                        },
+                        "AggregationFunction": "DISTINCT_COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total number of unique chat conversations, indicating overall user engagement volume"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_fafbeaa9",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Chat Turns</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Aggregate conversation turns across all chat sessions</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_fafbeaa9_Chat Turns_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Chat Turns"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Key performance indicator displaying total sum of chat turns from all user conversations"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_7a3f0b16",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total API Calls Volume</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Aggregate API request activity across all operations</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_7a3f0b16_API Calls_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-api-audit",
+                          "ColumnName": "API Calls"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Key performance indicator displaying the total sum of API calls from audit logs across all operations and actors"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_2ac5d986",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Answer Success Rate</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Percentage of chat answers marked successful</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_2ac5d986_Answer Success Rate %_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Answer Success Rate %"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total answer success rate percentage, indicating overall effectiveness of chat responses"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_ad3529ab",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Answer Usefulness Rate</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Percentage of chat responses rated helpful by users</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_ad3529ab_Usefulness Rate %_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Usefulness Rate %"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total usefulness rate percentage from user feedback on chat answers, indicating overall response quality"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a4b80772",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Successful API Calls</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of successful API operations across audit events</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_a4b80772_Successful Calls_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-api-audit",
+                          "ColumnName": "Successful Calls"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total count of successful API calls, indicating overall API reliability and operational health"
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_8b32be0b",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Daily Total Chat Turns Trend</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of chat turns aggregated by day</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_8b32be0b_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Event Time"
+                          },
+                          "DateGranularity": "DAY",
+                          "HierarchyId": "21e5f489-b2f0-4b94-9be4-668bd093e1e1"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_8b32be0b_Chat Turns_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Chat Turns"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Date",
+                      "ApplyTo": {
+                        "FieldId": "visual_8b32be0b_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Event Time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Daily Chat Turns Trend",
+                      "ApplyTo": {
+                        "FieldId": "visual_8b32be0b_Chat Turns_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Chat Turns"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "21e5f489-b2f0-4b94-9be4-668bd093e1e1",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "Line chart tracking total daily chat turns over time, revealing engagement trends and activity patterns across days"
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_fba7b5a3",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Daily API Call Volume Trend</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Total API calls tracked by day over time</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_fba7b5a3_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-api-audit",
+                            "ColumnName": "Event Time"
+                          },
+                          "DateGranularity": "DAY",
+                          "HierarchyId": "31e72777-f61f-4ad2-b52b-992a578625f9"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_fba7b5a3_API Calls_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-api-audit",
+                            "ColumnName": "API Calls"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Date",
+                      "ApplyTo": {
+                        "FieldId": "visual_fba7b5a3_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-api-audit",
+                          "ColumnName": "Event Time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Daily API Calls Trend",
+                      "ApplyTo": {
+                        "FieldId": "visual_fba7b5a3_API Calls_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-api-audit",
+                          "ColumnName": "API Calls"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "31e72777-f61f-4ad2-b52b-992a578625f9",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "Line chart tracking total daily API calls over time, revealing usage trends and activity patterns across the audit period"
+            }
+          },
+          {
+            "PieChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a92fa524",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answer Outcomes by Count</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Proportional breakdown of chat answer results</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_a92fa524_Outcome_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Outcome"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_a92fa524_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DonutOptions": {
+                  "ArcOptions": {
+                    "ArcThickness": "MEDIUM"
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Pie chart showing distribution of answer outcomes across all chat interactions, highlighting successful versus failed response proportions"
+            }
+          },
+          {
+            "PieChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_854e5516",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answer Feedback Breakdown</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Proportion of responses by feedback category</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "PieChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_854e5516_Feedback_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Feedback"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_854e5516_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DonutOptions": {
+                  "ArcOptions": {
+                    "ArcThickness": "MEDIUM"
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Pie chart showing distribution of answer counts across feedback categories, revealing user sentiment proportions"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_58ba4114",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Conversation Volume by User Role</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Ranking user roles by distinct conversation counts</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_58ba4114_User Role_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "User Role"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_58ba4114_Conversation ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Conversation ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "CLUSTERED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "User Role",
+                      "ApplyTo": {
+                        "FieldId": "visual_58ba4114_User Role_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "User Role"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal bar chart ranking user roles by conversation count, revealing which roles drive the most chat activity"
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "FreeFormLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_8b32be0b",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "566px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_fba7b5a3",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "566px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_58ba4114",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1006px",
+                    "YAxisLocation": "1026px",
+                    "Width": "594px",
+                    "Height": "464px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a92fa524",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1026px",
+                    "Width": "494px",
+                    "Height": "464px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_854e5516",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "506px",
+                    "YAxisLocation": "1026px",
+                    "Width": "494px",
+                    "Height": "464px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_7c38c1f2",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "6px",
+                    "Width": "528px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_fafbeaa9",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "540px",
+                    "YAxisLocation": "6px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_7a3f0b16",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1073px",
+                    "YAxisLocation": "6px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_2ac5d986",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "286px",
+                    "Width": "528px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_ad3529ab",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "540px",
+                    "YAxisLocation": "286px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a4b80772",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1073px",
+                    "YAxisLocation": "286px",
+                    "Width": "527px",
+                    "Height": "274px"
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "control_id_sheet-97141b4b_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-97141b4b_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-97141b4b_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-97141b4b_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-97141b4b_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-97141b4b_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_sheet-9b206163",
+        "Title": "💬 What Are People Asking",
+        "Description": "Content, intent, and usage patterns across Quick chat. providing comprehensive data insights and analysis for informed decision making",
+        "Name": "What Are People Asking",
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-9b206163_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+              "SourceFilterId": "list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-9b206163_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+              "SourceFilterId": "list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-9b206163_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+              "SourceFilterId": "list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-9b206163_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+              "SourceFilterId": "list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-9b206163_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+              "SourceFilterId": "list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-9b206163_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+              "SourceFilterId": "list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_aed18f0b",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Distinct Chat Users</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Unique user count engaging with Quick Chat</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_aed18f0b_User_distinct_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "User"
+                        },
+                        "AggregationFunction": "DISTINCT_COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total distinct users interacting with Quick Chat activity across all conversations"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a21e13e4",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Average Chat Turns per Conversation</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Mean dialogue exchanges across all user chat sessions</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_a21e13e4_Chat Turns_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Chat Turns"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "AVERAGE"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying the average number of chat turns per conversation, indicating typical user engagement depth"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_05ae7403",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>% Conversations with Attachments</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Share of chat conversations including file uploads</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_05ae7403_Had Attachment_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Had Attachment"
+                        },
+                        "AggregationFunction": "COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying the percentage of conversations containing attachments, indicating how often users share files during chats"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_0560f8a3",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answers with Cited Sources</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Share of responses backed by source citations</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "CategoricalMeasureField": {
+                        "FieldId": "visual_0560f8a3_Cited Sources_count_measure0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Cited Sources"
+                        },
+                        "AggregationFunction": "COUNT",
+                        "FormatConfiguration": {
+                          "NumericFormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying percentage of answers that include cited sources, indicating response grounding quality"
+            }
+          },
+          {
+            "TreeMapVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_06e2bf18",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Conversation Volume by Agent</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Hierarchical breakdown of chat conversations across agents</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TreeMapAggregatedFieldWells": {
+                    "Groups": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_06e2bf18_Agent_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Agent"
+                          }
+                        }
+                      }
+                    ],
+                    "Sizes": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_06e2bf18_Conversation ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Conversation ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Treemap showing total conversation counts grouped by agent, revealing which agents handle the largest chat volumes"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_3513e6d0",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answer Outcomes by Conversation Flow</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Successful versus failed answers across flow types</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_3513e6d0_Flow_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Flow"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_3513e6d0_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_3513e6d0_Outcome_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Outcome"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "VERTICAL",
+                "BarsArrangement": "STACKED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Flow",
+                      "ApplyTo": {
+                        "FieldId": "visual_3513e6d0_Flow_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Flow"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Stacked bar chart showing count of answers by flow, segmented by successful and failed outcomes across conversation types"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_804b004b",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Questions by Grounding Scope</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Count of questions across knowledge source scopes</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_804b004b_Grounding Scope_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Grounding Scope"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_804b004b_Question ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Question ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "CLUSTERED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Grounding Scope",
+                      "ApplyTo": {
+                        "FieldId": "visual_804b004b_Grounding Scope_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Grounding Scope"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal bar chart ranking grounding scopes by question volume, revealing which knowledge sources drive user inquiries"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_854470c4",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Not-Useful Feedback Reasons by Answer Count</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Count of answers grouped by user-reported feedback reason</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_854470c4_Feedback Reason_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Feedback Reason"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_854470c4_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "CLUSTERED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Feedback Reason",
+                      "ApplyTo": {
+                        "FieldId": "visual_854470c4_Feedback Reason_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Feedback Reason"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal bar chart ranking feedback reasons by count of not-useful answers, revealing common issues users report"
+            }
+          },
+          {
+            "HeatMapVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_88e1ddfd",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Chat Turns by Hour and Weekday</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Usage intensity across days of week and hours of day</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "HeatMapAggregatedFieldWells": {
+                    "Rows": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_88e1ddfd_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Event Time"
+                          },
+                          "HierarchyId": "524c82f5-dfcc-464d-8c9e-9e4395dcd90c"
+                        }
+                      }
+                    ],
+                    "Columns": [],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_88e1ddfd_Chat Turns_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Chat Turns"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "524c82f5-dfcc-464d-8c9e-9e4395dcd90c",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "Actions": [],
+              "VisualContentAltText": "Heatmap showing total chat turns across weekdays and hours, revealing peak usage times and daily engagement patterns"
+            }
+          },
+          {
+            "TableVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_524578d2",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Chat Engagement by User</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Total chat turns, useful ratings, and usefulness rate per user</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "TableAggregatedFieldWells": {
+                    "GroupBy": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_524578d2_User_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "User"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_524578d2_Chat Turns_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Chat Turns"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_524578d2_Rated Useful_measure_1",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Rated Useful"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_524578d2_Usefulness Rate %_measure_2",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Usefulness Rate %"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "VisualContentAltText": "Table listing users with total chat turns, rated useful counts, and usefulness rate percentage for engagement insights"
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "FreeFormLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_88e1ddfd",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1266px",
+                    "Width": "1594px",
+                    "Height": "514px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_524578d2",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1786px",
+                    "Width": "1594px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_06e2bf18",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "286px",
+                    "Width": "894px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_804b004b",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "786px",
+                    "Width": "794px",
+                    "Height": "474px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_854470c4",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "786px",
+                    "Width": "794px",
+                    "Height": "474px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_3513e6d0",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "906px",
+                    "YAxisLocation": "286px",
+                    "Width": "694px",
+                    "Height": "494px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_aed18f0b",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a21e13e4",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "406px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_05ae7403",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_0560f8a3",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1206px",
+                    "YAxisLocation": "6px",
+                    "Width": "394px",
+                    "Height": "274px"
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "control_id_sheet-9b206163_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-9b206163_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-9b206163_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-9b206163_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-9b206163_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-9b206163_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      },
+      {
+        "SheetId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_sheet-cfd401ae",
+        "Title": "⭐ Chat Quality & Feedback",
+        "Description": "Quality diagnostics — success, usefulness, and feedback drivers. providing comprehensive data insights and analysis for informed decision making",
+        "Name": "Chat Quality & Feedback",
+        "FilterControls": [
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-cfd401ae_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+              "SourceFilterId": "list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-cfd401ae_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+              "SourceFilterId": "list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-cfd401ae_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+              "SourceFilterId": "list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-cfd401ae_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+              "SourceFilterId": "list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-cfd401ae_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+              "SourceFilterId": "list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a"
+            }
+          },
+          {
+            "CrossSheet": {
+              "FilterControlId": "control_id_sheet-cfd401ae_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+              "SourceFilterId": "list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68"
+            }
+          }
+        ],
+        "Visuals": [
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a2d3e308",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Rated Answers by Users</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Cumulative count of chat responses receiving feedback</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_a2d3e308_Rated Answers_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Rated Answers"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total number of chat answers rated by users, indicating overall feedback engagement volume"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_2eb79bb4",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Useful Chat Ratings</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of positively rated chat answers</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_2eb79bb4_Rated Useful_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Rated Useful"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total count of chat answers rated as useful by users across all conversations"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_5bbd4c8c",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Not Useful Ratings</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Sum of negative feedback on chat answers</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_5bbd4c8c_Rated Not Useful_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Rated Not Useful"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying total count of chat answers rated as not useful by users, indicating response quality concerns"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_b870f154",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Overall Answer Usefulness Rate</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Percentage of chat answers rated useful by users</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_b870f154_Usefulness Rate %_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Usefulness Rate %"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying the total usefulness rate percentage of chat answers, indicating overall chat quality satisfaction"
+            }
+          },
+          {
+            "KPIVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_c41af813",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Total Not Useful Rate</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Percentage of answers rated unhelpful by users</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "visual_c41af813_Not Useful Rate %_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Not Useful Rate %"
+                        },
+                        "FormatConfiguration": {
+                          "FormatConfiguration": {
+                            "NumberDisplayFormatConfiguration": {
+                              "NumberScale": "AUTO",
+                              "NullValueFormatConfiguration": {
+                                "NullString": "null"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "TargetValues": [],
+                  "TrendGroups": []
+                },
+                "SortConfiguration": {}
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "KPI displaying the total not useful rate percentage, indicating the share of chat answers flagged as unhelpful"
+            }
+          },
+          {
+            "LineChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_60a39735",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Daily Successful vs Failed Answers</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Total answer outcomes tracked by day</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "LineChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "DateDimensionField": {
+                          "FieldId": "visual_60a39735_Event Time_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Event Time"
+                          },
+                          "DateGranularity": "DAY",
+                          "HierarchyId": "3456d156-cd51-408e-a6c8-1a59daeb9b11"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_60a39735_Successful Answers_measure_0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Successful Answers"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      },
+                      {
+                        "NumericalMeasureField": {
+                          "FieldId": "visual_60a39735_Failed Answers_measure_1",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Failed Answers"
+                          },
+                          "AggregationFunction": {
+                            "SimpleNumericalAggregation": "SUM"
+                          }
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {
+                  "CategoryItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "ColorItemsLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  },
+                  "SmallMultiplesLimitConfiguration": {
+                    "OtherCategories": "INCLUDE"
+                  }
+                },
+                "Type": "LINE",
+                "XAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Date",
+                      "ApplyTo": {
+                        "FieldId": "visual_60a39735_Event Time_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Event Time"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "PrimaryYAxisLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Answers",
+                      "ApplyTo": {
+                        "FieldId": "visual_60a39735_Successful Answers_measure_0",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Successful Answers"
+                        }
+                      }
+                    },
+                    {
+                      "CustomLabel": "Answers",
+                      "ApplyTo": {
+                        "FieldId": "visual_60a39735_Failed Answers_measure_1",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Failed Answers"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "HIDDEN",
+                  "Overlap": "DISABLE_OVERLAP"
+                },
+                "Tooltip": {
+                  "TooltipVisibility": "VISIBLE",
+                  "SelectedTooltipType": "DETAILED",
+                  "FieldBasedTooltip": {
+                    "AggregationVisibility": "HIDDEN",
+                    "TooltipTitleType": "PRIMARY_VALUE",
+                    "TooltipFields": []
+                  }
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [
+                {
+                  "DateTimeHierarchy": {
+                    "HierarchyId": "3456d156-cd51-408e-a6c8-1a59daeb9b11",
+                    "DrillDownFilters": []
+                  }
+                }
+              ],
+              "VisualContentAltText": "Line chart tracking daily totals of successful and failed answers over time, revealing chat quality trends"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_145dd200",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answer Feedback by User Role</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Useful, Not Useful, and No Feedback answers per role</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_145dd200_User Role_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "User Role"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_145dd200_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_145dd200_Feedback_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Feedback"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "VERTICAL",
+                "BarsArrangement": "STACKED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "User Role",
+                      "ApplyTo": {
+                        "FieldId": "visual_145dd200_User Role_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "User Role"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Stacked bar chart showing count of answers per user role, segmented by feedback rating to reveal satisfaction patterns"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_18ae5369",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Not-Useful Feedback Reasons by Answer Count</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Ranking reasons users flagged answers as not useful</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_18ae5369_Feedback Reason_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Feedback Reason"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_18ae5369_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": []
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "CLUSTERED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Feedback Reason",
+                      "ApplyTo": {
+                        "FieldId": "visual_18ae5369_Feedback Reason_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Feedback Reason"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal bar chart ranking feedback reasons by count of answers marked not useful, revealing top chat quality issues"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_5b570d86",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answer Outcomes by Agent</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Successful versus failed answers across chat agents</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_5b570d86_Agent_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Agent"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_5b570d86_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_5b570d86_Outcome_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Outcome"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "STACKED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Count of Answers",
+                      "ApplyTo": {
+                        "FieldId": "visual_5b570d86_Agent_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Agent"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal stacked bar chart showing count of answers per agent, split by successful and failed outcomes"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_f132b655",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Conversation Outcomes by Attachment Presence</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Successful versus failed conversation share by attachment status</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_f132b655_Had Attachment_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Had Attachment"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_f132b655_Conversation ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Conversation ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_f132b655_Outcome_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Outcome"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "STACKED_PERCENT",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Percentage Share",
+                      "ApplyTo": {
+                        "FieldId": "visual_f132b655_Had Attachment_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Had Attachment"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Stacked bar chart comparing successful and failed conversation counts between chats with and without attachments"
+            }
+          },
+          {
+            "BarChartVisual": {
+              "VisualId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_86d12084",
+              "Title": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-title>\n  <b>Answer Outcomes by Cited Sources</b>\n</visual-title>"
+                }
+              },
+              "Subtitle": {
+                "Visibility": "VISIBLE",
+                "FormatText": {
+                  "RichText": "<visual-subtitle>Answer counts split by source citation and outcome</visual-subtitle>"
+                }
+              },
+              "ChartConfiguration": {
+                "FieldWells": {
+                  "BarChartAggregatedFieldWells": {
+                    "Category": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_86d12084_Cited Sources_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Cited Sources"
+                          }
+                        }
+                      }
+                    ],
+                    "Values": [
+                      {
+                        "CategoricalMeasureField": {
+                          "FieldId": "visual_86d12084_Answer ID_distinct_count_measure0",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Answer ID"
+                          },
+                          "AggregationFunction": "DISTINCT_COUNT"
+                        }
+                      }
+                    ],
+                    "Colors": [
+                      {
+                        "CategoricalDimensionField": {
+                          "FieldId": "visual_86d12084_Outcome_field",
+                          "Column": {
+                            "DataSetIdentifier": "quick-obs-chat-activity",
+                            "ColumnName": "Outcome"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "SortConfiguration": {},
+                "Orientation": "HORIZONTAL",
+                "BarsArrangement": "STACKED",
+                "CategoryLabelOptions": {
+                  "AxisLabelOptions": [
+                    {
+                      "CustomLabel": "Cited Sources",
+                      "ApplyTo": {
+                        "FieldId": "visual_86d12084_Cited Sources_field",
+                        "Column": {
+                          "DataSetIdentifier": "quick-obs-chat-activity",
+                          "ColumnName": "Cited Sources"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "DataLabels": {
+                  "Visibility": "VISIBLE",
+                  "Overlap": "DISABLE_OVERLAP"
+                }
+              },
+              "Actions": [],
+              "ColumnHierarchies": [],
+              "VisualContentAltText": "Horizontal stacked bar chart showing answer counts grouped by cited sources presence, segmented by outcome to reveal citation impact"
+            }
+          }
+        ],
+        "Layouts": [
+          {
+            "Configuration": {
+              "FreeFormLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_60a39735",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "286px",
+                    "Width": "1594px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_f132b655",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1666px",
+                    "Width": "1594px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_145dd200",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "746px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_18ae5369",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "746px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_5b570d86",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "1206px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_86d12084",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "806px",
+                    "YAxisLocation": "1206px",
+                    "Width": "794px",
+                    "Height": "454px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_a2d3e308",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "6px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_2eb79bb4",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "326px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_5bbd4c8c",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "646px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_b870f154",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "966px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  },
+                  {
+                    "ElementId": "ef52ec28-0f94-4d45-a264-c40faaf2d32d_visual_c41af813",
+                    "ElementType": "VISUAL",
+                    "XAxisLocation": "1286px",
+                    "YAxisLocation": "6px",
+                    "Width": "314px",
+                    "Height": "274px"
+                  }
+                ],
+                "CanvasSizeOptions": {
+                  "ScreenCanvasSizeOptions": {
+                    "OptimizedViewPortWidth": "1600px"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "SheetControlLayouts": [
+          {
+            "Configuration": {
+              "GridLayout": {
+                "Elements": [
+                  {
+                    "ElementId": "control_id_sheet-cfd401ae_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-cfd401ae_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-cfd401ae_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 0,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-cfd401ae_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 0,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-cfd401ae_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 4,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  },
+                  {
+                    "ElementId": "control_id_sheet-cfd401ae_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+                    "ElementType": "FILTER_CONTROL",
+                    "ColumnIndex": 8,
+                    "ColumnSpan": 4,
+                    "RowIndex": 1,
+                    "RowSpan": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "ContentType": "INTERACTIVE"
+      }
+    ],
+    "CalculatedFields": [
+      {
+        "DataSetIdentifier": "quick-obs-chat-activity",
+        "Name": "Answer Success Rate %",
+        "Expression": "/*\nPercentage of chat answers with Successful outcome across all rated answers.\n*/\nifelse(sum({Successful Answers}) + sum({Failed Answers}) = 0, NULL, sum({Successful Answers}) / (sum({Successful Answers}) + sum({Failed Answers})) * 100)"
+      },
+      {
+        "DataSetIdentifier": "quick-obs-chat-activity",
+        "Name": "Not Useful Rate %",
+        "Expression": "/*\nPercentage of rated answers marked as Not Useful by users.\n*/\nifelse(sum({Rated Answers}) = 0, NULL, sum({Rated Not Useful}) / sum({Rated Answers}) * 100)"
+      },
+      {
+        "DataSetIdentifier": "quick-obs-chat-activity",
+        "Name": "Usefulness Rate %",
+        "Expression": "/*\nPercentage of rated answers marked as Useful by users.\n*/\nifelse(sum({Rated Answers}) = 0, NULL, sum({Rated Useful}) / sum({Rated Answers}) * 100)"
+      }
+    ],
+    "ParameterDeclarations": [],
+    "FilterGroups": [
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02_1ad956e4-b9b3-40d9-977e-22a5839e3bb7",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_2c68e20f-7ff7-43b3-a875-a7a3ba1c0e02",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-chat-activity",
+                "ColumnName": "User Role"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "User Role equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede_407fb9dc-f40e-4ad9-a8e6-784394749e95",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_921f8d28-f3ed-404f-9b88-2b98b04a6ede",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-chat-activity",
+                "ColumnName": "Outcome"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Outcome equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c_e8b2edec-d6e2-492f-a79b-324058cfe758",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_f1f65c05-12f5-4067-9cce-33a0e7221a5c",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-chat-activity",
+                "ColumnName": "Feedback"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Feedback equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7_8b112ed1-c8c8-43c4-8396-b9b845880cc8",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_7e3295ea-96f7-4e92-829f-a0181586fcc7",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-api-audit",
+                "ColumnName": "Actor Type"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Actor Type equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a_9bc3a323-0012-4639-bc5d-81f1ec5f18df",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_38b8f64a-ca61-4238-a3a5-2d9897211c4a",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-api-audit",
+                "ColumnName": "Region"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Region equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      },
+      {
+        "FilterGroupId": "filter_group_id_list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68_8fcaf384-463d-417a-ae79-9b8f8e46b3ac",
+        "Filters": [
+          {
+            "CategoryFilter": {
+              "FilterId": "list_filter_id_228cddd7-9ac8-4097-90bb-dc4452b45e68",
+              "Column": {
+                "DataSetIdentifier": "quick-obs-api-audit",
+                "ColumnName": "Operation Kind"
+              },
+              "Configuration": {
+                "FilterListConfiguration": {
+                  "MatchOperator": "CONTAINS",
+                  "SelectAllOptions": "FILTER_ALL_VALUES",
+                  "NullOption": "NON_NULLS_ONLY"
+                }
+              },
+              "DefaultFilterControlConfiguration": {
+                "Title": "Operation Kind equals",
+                "ControlOptions": {
+                  "DefaultDropdownOptions": {
+                    "DisplayOptions": {
+                      "SelectAllOptions": {
+                        "Visibility": "VISIBLE"
+                      },
+                      "TitleOptions": {
+                        "Visibility": "VISIBLE",
+                        "FontConfiguration": {
+                          "FontSize": {
+                            "Relative": "MEDIUM"
+                          }
+                        }
+                      }
+                    },
+                    "Type": "MULTI_SELECT"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "ScopeConfiguration": {
+          "AllSheets": {}
+        },
+        "Status": "ENABLED",
+        "CrossDataset": "SINGLE_DATASET"
+      }
+    ],
+    "AnalysisDefaults": {
+      "DefaultNewSheetConfiguration": {
+        "InteractiveLayoutConfiguration": {
+          "Grid": {
+            "CanvasSizeOptions": {
+              "ScreenCanvasSizeOptions": {
+                "ResizeOption": "FIXED",
+                "OptimizedViewPortWidth": "1600px"
+              }
+            }
+          }
+        },
+        "SheetContentType": "INTERACTIVE"
+      }
+    }
+  }
+}

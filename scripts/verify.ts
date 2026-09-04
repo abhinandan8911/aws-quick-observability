@@ -205,18 +205,23 @@ for (const spec of DATASETS) {
 }
 check('datasets', goodDatasets === DATASETS.length, `${goodDatasets} of ${DATASETS.length} present and owned`);
 
-const db = qs<{ Dashboard: { Version: { Status: string; Sheets: unknown[]; Errors?: unknown[] } } }>([
-  'describe-dashboard',
-  '--dashboard-id',
-  NAMES.dashboard,
-]);
-const dbPerms = qs<{ Permissions: { Principal: string }[] }>(['describe-dashboard-permissions', '--dashboard-id', NAMES.dashboard]);
-const v = db?.Dashboard?.Version;
-check(
-  'dashboard',
-  v?.Status === 'CREATION_SUCCESSFUL' && v.Sheets?.length === 3 && !v.Errors?.length && ownedBy(dbPerms?.Permissions),
-  `${v?.Status ?? 'MISSING'}, ${v?.Sheets?.length ?? 0} sheets, ${v?.Errors?.length ?? 0} errors`,
-);
+for (const [label, id] of [
+  ['dashboard pulse', NAMES.pulseDashboard],
+  ['dashboard observability', NAMES.opsDashboard],
+] as const) {
+  const db = qs<{ Dashboard: { Version: { Status: string; Sheets: unknown[]; Errors?: unknown[] } } }>([
+    'describe-dashboard',
+    '--dashboard-id',
+    id,
+  ]);
+  const dbPerms = qs<{ Permissions: { Principal: string }[] }>(['describe-dashboard-permissions', '--dashboard-id', id]);
+  const v = db?.Dashboard?.Version;
+  check(
+    label,
+    v?.Status === 'CREATION_SUCCESSFUL' && (v.Sheets?.length ?? 0) >= 1 && !v.Errors?.length && ownedBy(dbPerms?.Permissions),
+    `${v?.Status ?? 'MISSING'}, ${v?.Sheets?.length ?? 0} sheets, ${v?.Errors?.length ?? 0} errors`,
+  );
+}
 
 const topic = qs<{ Topic: { DataSets: { Columns?: unknown[] }[] }; CustomInstructions?: { CustomInstructionsString: string } }>([
   'describe-topic',

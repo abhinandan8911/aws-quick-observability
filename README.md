@@ -2,8 +2,8 @@
 
 Enterprise observability for an Amazon Quick account, as a **self-contained CDK
 module**. Quick's vended usage logs and its CloudTrail API activity land in a governed
-S3 lake, are catalogued in Glue, queried through Athena, and surfaced as a 3-sheet Quick
-dashboard plus a chat agent you can ask questions in plain English.
+S3 lake, are catalogued in Glue, queried through Athena, and surfaced as two Quick
+dashboards plus a chat agent you can ask questions in plain English.
 
 Copy this directory into any repo and it works on its own. It shares no code with its
 parent.
@@ -31,8 +31,9 @@ The **audit table is different**: with the default `existing-trail` source it re
 CloudTrail trail that has been running all along, so it has history from the moment you
 deploy. In this account a 30-day backfill produced 6,386 Quick API events immediately.
 
-So on a fresh deploy expect sheet 3 (Reliability & Audit) to have data and sheets 1–2 to
-be blank until Quick is used.
+So on a fresh deploy expect the API-audit visuals in the Quick Pulse dashboard to have
+data immediately, while everything sourced from vended usage logs — chat, agent hours,
+index storage and knowledge base sync — stays blank until Quick is used.
 
 Two consequences worth knowing:
 
@@ -113,7 +114,7 @@ S3 lake ──► Glue Data Catalog (8 tables) ──► Athena workgroup
                                               ▼
                              Quick: Athena data source
                                     5 direct-query datasets
-                                    3-sheet dashboard
+                                    2 dashboards
                                     topic + Space + chat agent
 ```
 
@@ -446,9 +447,10 @@ bin/app.ts                     Two stacks: <prefix>-pipeline, then <prefix>-quic
 lib/config.ts                  Single source of truth. All portability lives here
 lib/log-schemas.ts             The 7 log types' fields, transcribed from the docs
 lib/pipeline-stack.ts          CMK, S3 lake, 7 sources x 2 destinations, Firehose, Glue, Athena
-lib/quick-assets-stack.ts      Athena data source, 5 datasets, dashboard, topic, Space, agent
+lib/quick-assets-stack.ts      Athena data source, 5 datasets, 2 dashboards, topic, Space, agent
 lib/datasets.ts                Dataset SQL and column semantics
-lib/dashboard-definition.ts    The 3 sheets, built type-safely
+lib/dashboards.ts              Loads the two captured dashboards, binds them to the datasets
+lib/dashboards/*.json          The two dashboards, exported verbatim from Amazon Quick
 lib/topic-definition.ts        Topic semantics, custom instructions, agent copy
 lib/boto3-layer.ts             Pinned boto3 layer (the runtime's boto3 lacks the Agents API)
 lambda/provisioner/index.py    Topic and agent permissions, which CloudFormation cannot set

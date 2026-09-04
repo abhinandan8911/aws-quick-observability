@@ -403,8 +403,10 @@ export const NAMES = {
 
   // Quick assets.
   athenaDataSource: `${PREFIX}-athena-source`,
-  analysis: `${PREFIX}-analysis`,
-  dashboard: `${PREFIX}-dashboard`,
+  /** "Quick Pulse: Admin Observability" — adoption, answer quality and the API change log. */
+  pulseDashboard: `${PREFIX}-pulse`,
+  /** "Quick Observability Dashboard" — agent-hour cost, index storage and KB sync. */
+  opsDashboard: `${PREFIX}-observability`,
   topic: `${PREFIX}-topic-v${TOPIC_REVISION}`,
   space: `${PREFIX}-space`,
   agent: `${PREFIX}-agent`,

@@ -1,6 +1,6 @@
 /**
- * The Quick layer: Athena data source, 5 direct-query datasets, an analysis, the
- * 3-sheet dashboard, a topic, a Space and the chat agent.
+ * The Quick layer: Athena data source, 5 direct-query datasets, two dashboards captured
+ * verbatim from Amazon Quick, a topic, a Space and the chat agent.
  *
  * CloudFormation gaps that force custom resources:
  *   - `CfnTopic` has no `permissions` -> a CloudFormation-created topic has no owner.
@@ -10,6 +10,7 @@
 
 import {
   CfnOutput,
+  CfnResource,
   CustomResource,
   Duration,
   RemovalPolicy,
@@ -29,7 +30,6 @@ import * as path from 'path';
 import {
   ACCOUNT_ID,
   AGENT_OWNER_ACTIONS,
-  ANALYSIS_OWNER_ACTIONS,
   DASHBOARD_OWNER_ACTIONS,
   DATASET_OWNER_ACTIONS,
   DATASOURCE_OWNER_ACTIONS,
@@ -45,7 +45,7 @@ import {
 } from './config';
 import { BOTO3_SPEC, buildBoto3Layer } from './boto3-layer';
 import { DATASETS, datasetId } from './datasets';
-import { SHEETS } from './dashboard-definition';
+import { CAPTURED_DASHBOARDS, resolveDashboard } from './dashboards';
 import {
   AGENT_DESCRIPTION,
   AGENT_NAME,
@@ -199,6 +199,7 @@ export class QuickObservabilityAssetsStack extends Stack {
 
     const datasetArns = new Map<string, string>();
     const datasetResources: qs.CfnDataSet[] = [];
+    const datasetResourceByKey = new Map<string, qs.CfnDataSet>();
 
     for (const spec of DATASETS) {
       const dsId = datasetId(spec);
@@ -235,45 +236,55 @@ export class QuickObservabilityAssetsStack extends Stack {
       });
       ds.addDependency(dataSource);
       datasetResources.push(ds);
+      datasetResourceByKey.set(spec.key, ds);
     }
 
     // -----------------------------------------------------------------------
-    // Analysis and dashboard
+    // Dashboards
     // -----------------------------------------------------------------------
+    //
+    // Two dashboards, each captured verbatim from Amazon Quick (see lib/dashboards.ts):
+    //
+    //   pulse       "Quick Pulse: Admin Observability"  adoption, answer quality, API audit
+    //   operations  "Quick Observability Dashboard"     agent-hour cost, index storage, KB sync
+    //
+    // The captured JSON is CloudFormation's own `Definition` shape, so it is injected raw via
+    // a low-level CfnResource rather than reshaped into the L1's camelCase props — that keeps
+    // the freeform layout, theme, calculated fields and conditional formatting byte-for-byte.
+    // `resolveDashboard` binds each dataset identifier in the definition to the ARN this stack
+    // created above.
 
-    const declarations: qs.CfnDashboard.DataSetIdentifierDeclarationProperty[] = DATASETS.map((spec) => ({
-      identifier: spec.alias,
-      dataSetArn: datasetArns.get(spec.key)!,
-    }));
+    const dashboardIdByKey: Record<string, string> = {
+      pulse: NAMES.pulseDashboard,
+      operations: NAMES.opsDashboard,
+    };
 
-    const analysis = new qs.CfnAnalysis(this, 'Analysis', {
-      awsAccountId: ACCOUNT_ID,
-      analysisId: NAMES.analysis,
-      name: 'Quick Observability (working analysis)',
-      definition: {
-        dataSetIdentifierDeclarations: declarations,
-        sheets: SHEETS,
-      },
-      permissions: [{ principal: OWNER_ARN, actions: ANALYSIS_OWNER_ACTIONS }],
-    });
-    for (const ds of datasetResources) analysis.addDependency(ds);
+    const dashboards: CfnResource[] = [];
+    for (const cap of CAPTURED_DASHBOARDS) {
+      const resolved = resolveDashboard(cap, datasetArns);
+      const dashboardId = dashboardIdByKey[cap.key];
+      if (!dashboardId) throw new Error(`No dashboard id configured in NAMES for "${cap.key}".`);
 
-    const dashboard = new qs.CfnDashboard(this, 'Dashboard', {
-      awsAccountId: ACCOUNT_ID,
-      dashboardId: NAMES.dashboard,
-      name: 'Quick Observability',
-      definition: {
-        dataSetIdentifierDeclarations: declarations,
-        sheets: SHEETS,
-      },
-      dashboardPublishOptions: {
-        adHocFilteringOption: { availabilityStatus: 'ENABLED' },
-        exportToCsvOption: { availabilityStatus: 'ENABLED' },
-        sheetControlsOption: { visibilityState: 'EXPANDED' },
-      },
-      permissions: [{ principal: OWNER_ARN, actions: DASHBOARD_OWNER_ACTIONS }],
-    });
-    for (const ds of datasetResources) dashboard.addDependency(ds);
+      const dashboard = new CfnResource(this, `${pascal(cap.key)}Dashboard`, {
+        type: 'AWS::QuickSight::Dashboard',
+        properties: {
+          AwsAccountId: ACCOUNT_ID,
+          DashboardId: dashboardId,
+          Name: resolved.name,
+          ThemeArn: resolved.themeArn,
+          DashboardPublishOptions: resolved.publishOptions,
+          Definition: resolved.definition,
+          Permissions: [{ Principal: OWNER_ARN, Actions: DASHBOARD_OWNER_ACTIONS }],
+        },
+      });
+      // Depend on every dataset the dashboard binds to; a dashboard version fails to create
+      // if a referenced dataset does not yet exist.
+      for (const key of resolved.datasetKeys) {
+        const ds = datasetResourceByKey.get(key);
+        if (ds) dashboard.addDependency(ds);
+      }
+      dashboards.push(dashboard);
+    }
 
     // -----------------------------------------------------------------------
     // Topic
@@ -382,7 +393,10 @@ export class QuickObservabilityAssetsStack extends Stack {
       permissions: [{ principal: OWNER_ARN, actions: SPACE_OWNER_ACTIONS }],
       // Property is `resources`, not `spaceResources`.
       resources: [
-        { resourceArn: quickArn('dashboard', NAMES.dashboard), resourceType: 'DASHBOARD' },
+        ...Object.values(dashboardIdByKey).map((id) => ({
+          resourceArn: quickArn('dashboard', id),
+          resourceType: 'DASHBOARD',
+        })),
         { resourceArn: quickArn('topic', NAMES.topic), resourceType: 'TOPIC' },
         ...DATASETS.map((spec) => ({
           resourceArn: datasetArns.get(spec.key)!,
@@ -390,7 +404,7 @@ export class QuickObservabilityAssetsStack extends Stack {
         })),
       ],
     });
-    space.addDependency(dashboard);
+    for (const dashboard of dashboards) space.addDependency(dashboard);
     space.addDependency(topic);
     for (const ds of datasetResources) space.addDependency(ds);
 
@@ -425,9 +439,13 @@ export class QuickObservabilityAssetsStack extends Stack {
     // -----------------------------------------------------------------------
 
     const console = `https://${REGION}.quicksight.aws.amazon.com/sn/start`;
-    new CfnOutput(this, 'DashboardUrl', {
-      value: `${console}/dashboards/${NAMES.dashboard}`,
-      description: 'Quick Observability dashboard',
+    new CfnOutput(this, 'PulseDashboardUrl', {
+      value: `${console}/dashboards/${NAMES.pulseDashboard}`,
+      description: 'Quick Pulse: Admin Observability (adoption, answer quality, API audit)',
+    });
+    new CfnOutput(this, 'ObservabilityDashboardUrl', {
+      value: `${console}/dashboards/${NAMES.opsDashboard}`,
+      description: 'Quick Observability Dashboard (agent-hour cost, index storage, KB sync)',
     });
     new CfnOutput(this, 'AgentsListUrl', {
       value: `${console}/agents?filter=all-agents`,
@@ -440,8 +458,6 @@ export class QuickObservabilityAssetsStack extends Stack {
       value: DATASETS.map((s) => datasetId(s)).join(','),
       description: 'Direct-query datasets over Athena',
     });
-
-    void analysis;
   }
 }
 
